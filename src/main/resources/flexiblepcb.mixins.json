@@ -4,6 +4,8 @@
   "package": "heyblack.flexiblepcb.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "rule.moreChunkLoaders.HopperBlockEntityMixin",
+    "rule.moreChunkLoaders.PistonBlockMixin"
   ],
   "client": [
   ],
