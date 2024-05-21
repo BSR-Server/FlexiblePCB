@@ -40,4 +40,10 @@ public class FlexiblePCBSettings
             category = {SURVIVAL, "flexiblepcb"}
     )
     public static boolean moreChunkLoaders = false;
+
+    @Rule(
+            desc = "Insert item in mainhand to minecart",
+            category = {SURVIVAL, "flexiblepcb"}
+    )
+    public static boolean insertBlockToMinecart = false;
 }
