@@ -3,6 +3,9 @@ package heyblack.flexiblepcb;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.settings.SettingsManager;
+import com.mojang.brigadier.CommandDispatcher;
+import heyblack.flexiblepcb.command.ItemShadowCommand;
+import net.minecraft.server.command.ServerCommandSource;
 
 public class FlexiblePCBMod implements CarpetExtension
 {
@@ -21,5 +24,10 @@ public class FlexiblePCBMod implements CarpetExtension
 
             }
         });
+    }
+
+    @Override
+    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
+        ItemShadowCommand.register(dispatcher);
     }
 }

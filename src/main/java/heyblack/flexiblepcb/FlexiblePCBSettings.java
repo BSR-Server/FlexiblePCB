@@ -46,4 +46,10 @@ public class FlexiblePCBSettings
             category = {SURVIVAL, "flexiblepcb"}
     )
     public static boolean insertBlockToMinecart = false;
+
+    @Rule(
+            desc = "Display memory address of item stack instance in the tooltip",
+            category = {SURVIVAL, "flexiblepcb"}
+    )
+    public static boolean itemStackMemoryAddressInTooltip = false;
 }
