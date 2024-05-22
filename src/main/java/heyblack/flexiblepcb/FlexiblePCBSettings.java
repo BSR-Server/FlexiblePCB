@@ -5,19 +5,18 @@ import carpet.settings.Rule;
 import carpet.settings.Validator;
 import net.minecraft.server.command.ServerCommandSource;
 
-import static carpet.settings.RuleCategory.CREATIVE;
-import static carpet.settings.RuleCategory.SURVIVAL;
+import static carpet.settings.RuleCategory.*;
 
 public class FlexiblePCBSettings
 {
-//    private static class CheckValue extends Validator<Integer>
-//    {
-//        @Override
-//        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String typedString)
-//        {
-//            return newValue < 20000000 ? newValue : null;
-//        }
-//    }
+    private static class CheckValue extends Validator<Integer>
+    {
+        @Override
+        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String typedString)
+        {
+            return newValue < 32768 ? newValue : null;
+        }
+    }
 
 //    @Rule(
 //            desc = "exampleRule",
@@ -46,4 +45,18 @@ public class FlexiblePCBSettings
             category = {SURVIVAL, "flexiblepcb"}
     )
     public static boolean insertBlockToMinecart = false;
+
+    @Rule(
+            desc = "Enables /updateBlock command to update blocks",
+            category = {COMMAND, "flexiblepcb"}
+    )
+    public static boolean commandUpdateBlock = false;
+
+    @Rule(
+            desc = "Sets the maximum amount of blocks can be updated by command /updateBlock",
+            category = {COMMAND, "flexiblepcb"},
+            validate = {Validator.NONNEGATIVE_NUMBER.class, CheckValue.class},
+            options = {"10000", "32768"}
+    )
+    public static int updateBlockCommandLimit = 32768;
 }

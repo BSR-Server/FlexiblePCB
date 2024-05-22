@@ -3,6 +3,9 @@ package heyblack.flexiblepcb;
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.settings.SettingsManager;
+import com.mojang.brigadier.CommandDispatcher;
+import heyblack.flexiblepcb.command.UpdateBlockCommand;
+import net.minecraft.server.command.ServerCommandSource;
 
 public class FlexiblePCBMod implements CarpetExtension
 {
@@ -15,11 +18,16 @@ public class FlexiblePCBMod implements CarpetExtension
     public void onGameStarted() {
         CarpetServer.settingsManager.parseSettingsClass(FlexiblePCBSettings.class);
 
-        // called after setting carpet rule
         CarpetServer.settingsManager.addRuleObserver( (serverCommandSource, currentRuleState, originalUserTest) -> {
-            if (currentRuleState.categories.contains("flexiblepcb")) {
-
-            }
+            // called after setting ANY carpet rule
+//            if (currentRuleState.categories.contains("flexiblepcb")) {
+//
+//            }
         });
+    }
+
+    @Override
+    public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
+        UpdateBlockCommand.register(dispatcher);
     }
 }
