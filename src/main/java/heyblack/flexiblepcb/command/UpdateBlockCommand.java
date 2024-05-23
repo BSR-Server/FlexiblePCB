@@ -120,7 +120,8 @@ public class UpdateBlockCommand
         return 0;
     }
 
-    public static int updatePP(PlayerEntity player, BlockBox box, BlockStateArgument targetStateArgument) {if ((box.getBlockCountX() * box.getBlockCountY() * box.getBlockCountZ()) < FlexiblePCBSettings.updateBlockCommandLimit) {
+    public static int updatePP(PlayerEntity player, BlockBox box, BlockStateArgument targetStateArgument) {
+        if ((box.getBlockCountX() * box.getBlockCountY() * box.getBlockCountZ()) < FlexiblePCBSettings.updateBlockCommandLimit) {
             World world = player.getEntityWorld();
             ArrayList<BlockPos> list = Lists.newArrayList();
 

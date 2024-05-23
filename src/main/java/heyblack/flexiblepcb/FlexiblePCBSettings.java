@@ -42,21 +42,20 @@ public class FlexiblePCBSettings
 
     @Rule(
             desc = "Insert item in mainhand to minecart",
-            category = {SURVIVAL, "flexiblepcb"}
+            category = {FEATURE, "flexiblepcb"}
     )
     public static boolean insertBlockToMinecart = false;
 
     @Rule(
             desc = "Enables /updateBlock command to update blocks",
-            category = {COMMAND, "flexiblepcb"}
+            category = {COMMAND, CREATIVE, "flexiblepcb"}
     )
     public static boolean commandUpdateBlock = false;
 
     @Rule(
             desc = "Sets the maximum amount of blocks can be updated by command /updateBlock",
-            category = {COMMAND, "flexiblepcb"},
-            validate = {Validator.NONNEGATIVE_NUMBER.class, CheckValue.class},
-            options = {"10000", "32768"}
+            category = {COMMAND, CREATIVE, "flexiblepcb"},
+            validate = {Validator.NONNEGATIVE_NUMBER.class, CheckValue.class}
     )
     public static int updateBlockCommandLimit = 32768;
 }

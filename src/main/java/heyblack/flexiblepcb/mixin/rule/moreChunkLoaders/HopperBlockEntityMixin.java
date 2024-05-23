@@ -1,7 +1,5 @@
 package heyblack.flexiblepcb.mixin.rule.moreChunkLoaders;
 
-import carpet.CarpetSettings;
-import heyblack.flexiblepcb.FlexiblePCBMod;
 import heyblack.flexiblepcb.FlexiblePCBSettings;
 import heyblack.flexiblepcb.util.rule.moreChunkLoaders.ExtraTickets;
 import net.minecraft.block.BlockState;
