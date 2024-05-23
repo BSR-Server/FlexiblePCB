@@ -25,7 +25,7 @@ import java.util.Set;
 public class UpdateBlockCommand
 {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-        dispatcher.register(CommandManager.literal("updateBlock")
+        dispatcher.register(CommandManager.literal("updateblock")
                 .requires((player) -> SettingsManager.canUseCommand(player, FlexiblePCBSettings.commandUpdateBlock))
                 .then(CommandManager.literal("neighborchanged")
                         .then(

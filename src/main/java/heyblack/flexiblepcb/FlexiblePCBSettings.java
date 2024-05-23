@@ -53,9 +53,23 @@ public class FlexiblePCBSettings
     public static boolean commandUpdateBlock = false;
 
     @Rule(
-            desc = "Sets the maximum amount of blocks can be updated by command /updateBlock",
+            desc = "Sets the maximum amount of blocks can be updated by command \"/updateBlock\"",
             category = {COMMAND, CREATIVE, "flexiblepcb"},
             validate = {Validator.NONNEGATIVE_NUMBER.class, CheckValue.class}
     )
     public static int updateBlockCommandLimit = 32768;
+
+    @Rule(
+            desc = "Shows the status of shadowed items by command \"/itemshadow show\"",
+            extra = {"The status of the item in the main hand will be shown"},
+            category = {COMMAND, "flexiblepcb"}
+    )
+    public static boolean commandItemShadowShow = false;
+
+    @Rule(
+            desc = "Creates an item shadow by command \"/itemshadow create\"",
+            extra = {"An item shadow of the item in the main-hand will be created in the off-hand"},
+            category = {COMMAND, CREATIVE, "flexiblepcb"}
+    )
+    public static boolean commandItemShadowCreate = false;
 }
