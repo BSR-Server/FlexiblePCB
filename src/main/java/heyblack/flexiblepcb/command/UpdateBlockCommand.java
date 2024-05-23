@@ -16,6 +16,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class UpdateBlockCommand
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(CommandManager.literal("updateBlock")
                 .requires((player) -> SettingsManager.canUseCommand(player, FlexiblePCBSettings.commandUpdateBlock))
-                .then(CommandManager.literal("neighbor_changed")
+                .then(CommandManager.literal("neighborchanged")
                         .then(
                                 CommandManager.argument("from", BlockPosArgumentType.blockPos())
                                 .then(CommandManager.argument("to", BlockPosArgumentType.blockPos())
@@ -37,9 +38,7 @@ public class UpdateBlockCommand
                                                         BlockPosArgumentType.getLoadedBlockPos(context, "from"),
                                                         BlockPosArgumentType.getLoadedBlockPos(context, "to")
                                                 ),
-                                                // nobody needs to update a structure void right?
-                                                null,
-                                                false
+                                                null
                                         ))
 
                                         // update the assigned type of block only
@@ -50,15 +49,13 @@ public class UpdateBlockCommand
                                                                 BlockPosArgumentType.getLoadedBlockPos(context, "from"),
                                                                 BlockPosArgumentType.getLoadedBlockPos(context, "to")
                                                         ),
-                                                        BlockStateArgumentType.getBlockState(context,"target"),
-                                                        true
+                                                        BlockStateArgumentType.getBlockState(context,"target")
                                                 ))
                                         )
                                 )
                         )
                 )
-
-                .then(CommandManager.literal("post_placement")
+                .then(CommandManager.literal("postplacement")
                         .then(CommandManager.argument("from", BlockPosArgumentType.blockPos())
                                 .then(CommandManager.argument("to", BlockPosArgumentType.blockPos())
                                         // update every block in area when no target is assigned
@@ -79,19 +76,16 @@ public class UpdateBlockCommand
                                                                 BlockPosArgumentType.getLoadedBlockPos(context, "from"),
                                                                 BlockPosArgumentType.getLoadedBlockPos(context, "to")
                                                         ),
-                                                        BlockStateArgumentType.getBlockState(context,"target").getBlockState()
+                                                        BlockStateArgumentType.getBlockState(context,"target")
                                                 ))
                                         )
                                 )
                         )
                 )
-
-                .then(CommandManager.literal("both")
-                )
         );
     }
 
-    public static int updateNC(PlayerEntity player, BlockBox box, BlockStateArgument targetStateArgument, boolean hasTarget) {
+    public static int updateNC(PlayerEntity player, BlockBox box, BlockStateArgument targetStateArgument) {
         if ((box.getBlockCountX() * box.getBlockCountY() * box.getBlockCountZ()) < FlexiblePCBSettings.updateBlockCommandLimit) {
             World world = player.getEntityWorld();
             ArrayList<BlockPos> list = Lists.newArrayList();
@@ -126,7 +120,45 @@ public class UpdateBlockCommand
         return 0;
     }
 
-    public static int updatePP(PlayerEntity player, BlockBox box, BlockState block) {
+    public static int updatePP(PlayerEntity player, BlockBox box, BlockStateArgument targetStateArgument) {if ((box.getBlockCountX() * box.getBlockCountY() * box.getBlockCountZ()) < FlexiblePCBSettings.updateBlockCommandLimit) {
+            World world = player.getEntityWorld();
+            ArrayList<BlockPos> list = Lists.newArrayList();
+
+            Set<Property<?>> targetProperties = null;
+            BlockState targetState = null;
+
+            if (targetStateArgument != null) {
+                targetProperties = ((BlockStateArgumentAccessor) targetStateArgument).getProperties();
+                targetState = targetStateArgument.getBlockState();
+            }
+
+            for (BlockPos pos : BlockPos.iterate(box.minX, box.minY, box.minZ, box.maxX, box.maxY, box.maxZ)) {
+                BlockState state = world.getBlockState(pos);
+
+                if (targetState == null) {
+                    list.add(pos.toImmutable());
+                }
+                else if (state.getBlock() == targetState.getBlock()) {
+                    if (checkProperties(state, targetProperties, targetStateArgument))
+                        list.add(pos.toImmutable());
+                }
+            }
+
+            for (BlockPos pos : list) {
+                for (Direction dir : Direction.values()) {
+                    world.getBlockState(pos).getStateForNeighborUpdate(
+                            dir,
+                            Blocks.AIR.getDefaultState(),
+                            world,
+                            pos,
+                            pos
+                    );
+                }
+            }
+
+            return 1;
+        }
+
         return 0;
     }
 
