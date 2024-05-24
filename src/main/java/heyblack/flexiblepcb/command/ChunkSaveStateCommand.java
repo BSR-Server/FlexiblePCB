@@ -9,10 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.ChunkPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -48,7 +45,7 @@ public class ChunkSaveStateCommand {
         World world = source.getPlayer().getEntityWorld();
         ChunkPos pos = new ChunkPos(source.getPlayer().getBlockPos());
 
-        String addedText = String.format("Added %s in %s to the savestate list", pos.toString(), getDimensionID(world));
+        String addedText = String.format("Added %s in %s to the savestate list", pos.toString(), getWorldID(world));
 
         if (map.get(world) != null && !map.get(world).contains(pos)) {
             ArrayList<ChunkPos> list = map.get(world);
@@ -76,7 +73,7 @@ public class ChunkSaveStateCommand {
             ArrayList<ChunkPos> list = map.get(world);
             list.remove(targetPos);
             map.put(world, list);
-            source.getPlayer().sendMessage(Text.of(String.format("Removed %s in %s from the savestate list", targetPos.toString(), getDimensionID(world))), false);
+            source.getPlayer().sendMessage(Text.of(String.format("Removed %s in %s from the savestate list", targetPos.toString(), getWorldID(world))), false);
         }
         else if (map.get(world) != null) {
             source.getPlayer().sendMessage(Text.of("This chunk has not been added to the savestate list!"), false);
@@ -107,7 +104,7 @@ public class ChunkSaveStateCommand {
                 list = map.get(world);
 
                 if (list != null && !list.isEmpty()) {
-                    player.sendMessage(Text.of(String.format("Chunk savestate list for %s:", getDimensionID(world))), false);
+                    player.sendMessage(Text.of(String.format("Chunk savestate list for %s:", getWorldID(world))), false);
 
                     for (ChunkPos pos : list) {
                         player.sendMessage(Text.of(pos.toString()), false);
@@ -126,15 +123,7 @@ public class ChunkSaveStateCommand {
         return map.get(world);
     }
 
-    public static String getDimensionID(World world) {
-        if (world.getRegistryKey() == RegistryKey.of(Registry.WORLD_KEY, new Identifier("overworld"))) {
-            return "overworld";
-        } else if (world.getRegistryKey() == RegistryKey.of(Registry.WORLD_KEY, new Identifier("the_nether"))) {
-            return "the_nether";
-        } else if (world.getRegistryKey() == RegistryKey.of(Registry.WORLD_KEY, new Identifier("the_end"))) {
-            return "the_end";
-        } else {
-            return "unidentified";
-        }
+    public static String getWorldID(World world) {
+        return  world.getRegistryKey().getValue().toString();
     }
 }
