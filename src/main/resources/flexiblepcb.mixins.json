@@ -4,6 +4,7 @@
   "package": "heyblack.flexiblepcb.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "command.commandChunkSaveState.ChunkSerializerMixin",
     "command.commandUpdateBlock.BlockStateArgumentAccessor",
     "rule.insertBlockToMinecart.MinecartEntityMixin",
     "rule.moreChunkLoaders.HopperBlockEntityMixin",
