@@ -72,4 +72,10 @@ public class FlexiblePCBSettings
             category = {COMMAND, CREATIVE, "flexiblepcb"}
     )
     public static boolean commandItemShadowCreate = false;
+
+    @Rule(
+            desc = "Manages chunks for save-stating by command \"/chunksavestate\"",
+            category = {COMMAND, CREATIVE, "flexiblepcb"}
+    )
+    public static boolean commandChunkSaveState = false;
 }

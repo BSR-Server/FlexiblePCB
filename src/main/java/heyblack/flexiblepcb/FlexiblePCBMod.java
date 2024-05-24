@@ -4,6 +4,7 @@ import carpet.CarpetExtension;
 import carpet.CarpetServer;
 import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
+import heyblack.flexiblepcb.command.ChunkSaveStateCommand;
 import heyblack.flexiblepcb.command.ItemShadowCommand;
 import heyblack.flexiblepcb.command.UpdateBlockCommand;
 import net.minecraft.server.command.ServerCommandSource;
@@ -31,5 +32,6 @@ public class FlexiblePCBMod implements CarpetExtension
     public void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher) {
         UpdateBlockCommand.register(dispatcher);
         ItemShadowCommand.register(dispatcher);
+        ChunkSaveStateCommand.register(dispatcher);
     }
 }
