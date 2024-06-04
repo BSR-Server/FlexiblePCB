@@ -6,6 +6,7 @@
   "mixins": [
     "command.commandChunkSaveState.ChunkSerializerMixin",
     "command.commandUpdateBlock.BlockStateArgumentAccessor",
+    "rule.fixUnstableOnGroundTag.EntityMixin",
     "rule.insertBlockToMinecart.MinecartEntityMixin",
     "rule.moreChunkLoaders.HopperBlockEntityMixin",
     "rule.moreChunkLoaders.PistonBlockMixin"
