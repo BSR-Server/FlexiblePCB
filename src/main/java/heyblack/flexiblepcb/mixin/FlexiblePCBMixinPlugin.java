@@ -47,11 +47,11 @@ public class FlexiblePCBMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public void postApply(String targetClassName, ClassNode targetClass, String mixinClassName, IMixinInfo mixinInfo) {
-        System.out.println("targetClassName = " + targetClassName);
+//        System.out.println("targetClassName = " + targetClassName);
         if (targetClassName.equals(Names.Entity_class)) {
             for (MethodNode method : targetClass.methods) {
                 if (method.name.equals(Names.Entity_move) && method.desc.equals(Names.Entity_move_desc)) {
-                    System.out.println("method = " + method);
+//                    System.out.println("method = " + method);
                     ListIterator<AbstractInsnNode> iter = method.instructions.iterator();
                     while (iter.hasNext()) {
                         AbstractInsnNode insnNode = iter.next();
