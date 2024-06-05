@@ -6,7 +6,8 @@
   "mixins": [
     "command.commandChunkSaveState.ChunkSerializerMixin",
     "command.commandUpdateBlock.BlockStateArgumentAccessor",
-    "rule.fixUnstableOnGroundTag.EntityMixin",
+    "rule.fixUnstableOnGroundTag.BedBlockMixin",
+    "rule.fixUnstableOnGroundTag.SlimeBlockMixin",
     "rule.insertBlockToMinecart.MinecartEntityMixin",
     "rule.moreChunkLoaders.HopperBlockEntityMixin",
     "rule.moreChunkLoaders.PistonBlockMixin"
@@ -15,6 +16,5 @@
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "plugin": "heyblack.flexiblepcb.mixin.FlexiblePCBMixinPlugin"
+  }
 }
