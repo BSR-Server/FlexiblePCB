@@ -78,4 +78,10 @@ public class FlexiblePCBSettings
             category = {COMMAND, CREATIVE, "flexiblepcb"}
     )
     public static boolean commandChunkSaveState = false;
+
+    @Rule(
+            desc = "Fixes MC-254307, and the same issue with beds",
+            category = {BUGFIX, "flexiblepcb"}
+    )
+    public static boolean UnstableOnGroundTagFix = false;
 }
