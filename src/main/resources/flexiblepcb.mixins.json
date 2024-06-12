@@ -9,6 +9,7 @@
     "rule.fixUnstableOnGroundTag.BedBlockMixin",
     "rule.fixUnstableOnGroundTag.SlimeBlockMixin",
     "rule.insertBlockToMinecart.MinecartEntityMixin",
+    "rule.itemPickUpRange.PlayerEntityMixin",
     "rule.moreChunkLoaders.HopperBlockEntityMixin",
     "rule.moreChunkLoaders.PistonBlockMixin"
   ],

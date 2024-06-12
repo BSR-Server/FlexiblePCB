@@ -84,4 +84,29 @@ public class FlexiblePCBSettings
             category = {BUGFIX, "flexiblepcb"}
     )
     public static boolean unstableOnGroundTagFix = false;
+
+    public static final double VANILLA_ITEM_PICK_UP_RANGE_HORIZONTAL = 1.0;
+    @Rule(
+            desc = "Changes the horizontal edge length of item pick up range for player",
+            category = {CREATIVE, "flexiblepcb"},
+            extra = {
+                    "Note that this range means the range between the hitboxes of player and item, not the position of them."
+            },
+            validate = {Validator.NONNEGATIVE_NUMBER.class},
+            options = {"1.0", "2.0", "5.0", "10.0", "0.0"}
+    )
+    public static double itemPickUpRangeHorizontal = VANILLA_ITEM_PICK_UP_RANGE_HORIZONTAL;
+
+    public static final double VANILLA_ITEM_PICK_UP_RANGE_VERTICAL = 0.5;
+    @Rule(
+            desc = "Changes the vertical edge length of item pick up range for player",
+            category = {CREATIVE, "flexiblepcb"},
+            extra = {
+                    "In vanilla, whether the player is riding a vehicle or not will affect the vertical range of item pick up, this rule will not consider and will override that.",
+                    "Note that this range means the range between the hitboxes of player and item, not the position of them."
+            },
+            validate = {Validator.NONNEGATIVE_NUMBER.class},
+            options = {"1.0", "2.0", "5.0", "10.0", "0.0"}
+    )
+    public static double itemPickUpRangeVertical = VANILLA_ITEM_PICK_UP_RANGE_VERTICAL;
 }
