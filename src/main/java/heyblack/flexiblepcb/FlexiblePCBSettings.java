@@ -83,5 +83,5 @@ public class FlexiblePCBSettings
             desc = "Fixes MC-254307, and the same issue with beds",
             category = {BUGFIX, "flexiblepcb"}
     )
-    public static boolean UnstableOnGroundTagFix = false;
+    public static boolean unstableOnGroundTagFix = false;
 }

@@ -12,7 +12,7 @@ public class Hooks {
 
     @SuppressWarnings("unused")
     public static void checkVelocity(Block block, BlockView world, Entity entity, Vec3d vec3d) {
-        if (FlexiblePCBSettings.UnstableOnGroundTagFix) {
+        if (FlexiblePCBSettings.unstableOnGroundTagFix) {
             if ((entity.getVelocity().y <= 0.0 && entity.getVelocity().y >= -0.08)
                     && (block instanceof SlimeBlock || block instanceof BedBlock)
             ){

@@ -13,8 +13,9 @@ public class SlimeBlockMixin
 {
     @Inject(method = "bounce", at = @At("HEAD"), cancellable = true)
     public void checkVelocity(Entity entity, CallbackInfo ci) {
-        if (FlexiblePCBSettings.UnstableOnGroundTagFix) {
-            if (entity.getVelocity().y <= 0.0 && entity.getVelocity().y >= -0.08) {
+        if (FlexiblePCBSettings.unstableOnGroundTagFix) {
+            double y = entity.getVelocity().y;
+            if (y <= 0.0 && y >= -0.08) {
                 entity.setVelocity(entity.getVelocity().multiply(1.0, 0.0, 1.0));
                 ci.cancel();
             }
