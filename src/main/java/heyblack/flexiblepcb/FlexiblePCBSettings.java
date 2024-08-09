@@ -1,5 +1,6 @@
 package heyblack.flexiblepcb;
 
+import carpet.CarpetSettings;
 import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
 import carpet.settings.Validator;
@@ -7,13 +8,10 @@ import net.minecraft.server.command.ServerCommandSource;
 
 import static carpet.settings.RuleCategory.*;
 
-public class FlexiblePCBSettings
-{
-    private static class CheckValue extends Validator<Integer>
-    {
+public class FlexiblePCBSettings {
+    private static class CheckValue extends Validator<Integer> {
         @Override
-        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String typedString)
-        {
+        public Integer validate(ServerCommandSource source, ParsedRule<Integer> currentRule, Integer newValue, String typedString) {
             return newValue < 32768 ? newValue : null;
         }
     }
@@ -58,6 +56,14 @@ public class FlexiblePCBSettings
             validate = {Validator.NONNEGATIVE_NUMBER.class, CheckValue.class}
     )
     public static int updateBlockCommandLimit = 32768;
+
+    @Rule(
+            desc = "Enables /removeBlock command to remove block",
+            category = {COMMAND, CREATIVE, "flexiblepcb"},
+            options = {"ops", "0", "1", "2", "3", "4", "false", "true"},
+            validate = {Validator._COMMAND_LEVEL_VALIDATOR.class}
+    )
+    public static String commandRemoveBlock = "ops";
 
     @Rule(
             desc = "Shows the status of shadowed items by command \"/itemshadow show\"",
@@ -109,4 +115,10 @@ public class FlexiblePCBSettings
             options = {"1.0", "2.0", "5.0", "10.0", "0.0"}
     )
     public static double itemPickUpRangeVertical = VANILLA_ITEM_PICK_UP_RANGE_VERTICAL;
+
+    @Rule(
+            desc = "Do not trigger any block updates when using the debug stick",
+            category = {CREATIVE, "flexiblepcb"}
+    )
+    public static boolean debugStickNoBlockUpdate = false;
 }
