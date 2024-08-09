@@ -59,6 +59,10 @@ public class FlexiblePCBSettings {
 
     @Rule(
             desc = "Enables /removeBlock command to remove block",
+            extra = {
+                    "The removal and replacement will not send block/light update, the original block entity will be kept and no new block entity will be added",
+                    "Note that light will be updated client-side"
+            },
             category = {COMMAND, CREATIVE, "flexiblepcb"},
             options = {"ops", "0", "1", "2", "3", "4", "false", "true"},
             validate = {Validator._COMMAND_LEVEL_VALIDATOR.class}
