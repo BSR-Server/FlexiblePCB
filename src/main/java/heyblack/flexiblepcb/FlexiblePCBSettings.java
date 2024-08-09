@@ -117,7 +117,7 @@ public class FlexiblePCBSettings {
     public static double itemPickUpRangeVertical = VANILLA_ITEM_PICK_UP_RANGE_VERTICAL;
 
     @Rule(
-            desc = "Do not trigger any block updates when using the debug stick",
+            desc = "Using debug stick will not send block update",
             category = {CREATIVE, "flexiblepcb"}
     )
     public static boolean debugStickNoBlockUpdate = false;

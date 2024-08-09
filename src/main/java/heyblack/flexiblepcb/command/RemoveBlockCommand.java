@@ -63,7 +63,7 @@ public class RemoveBlockCommand {
                 level.setBlockState(
                         pos,
                         newState != null ? newState : Blocks.AIR.getDefaultState(),
-                        2,
+                        130,
                         0
                 );
                 level.removeBlockEntity(pos);
