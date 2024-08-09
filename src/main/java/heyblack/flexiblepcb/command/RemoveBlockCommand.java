@@ -66,9 +66,11 @@ public class RemoveBlockCommand {
                         2,
                         0
                 );
-                e.cancelRemoval();
                 level.removeBlockEntity(pos);
-                level.setBlockEntity(pos, e);
+                if (e != null) {
+                    e.cancelRemoval();
+                    level.setBlockEntity(pos, e);
+                }
                 if (newState == null) {
                     src.sendFeedback(
                             Text.of("Removed ").copy().append(bs.getBlock().getName()),
