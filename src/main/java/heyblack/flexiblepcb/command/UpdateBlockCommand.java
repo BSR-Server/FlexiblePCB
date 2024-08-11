@@ -15,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.state.property.Property;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -116,6 +117,11 @@ public class UpdateBlockCommand
             }
 
             return 1;
+        } else {
+            player.sendMessage(
+                    Text.of("Selected area exceeds the limit of " + FlexiblePCBSettings.updateBlockCommandLimit),
+                    false
+            );
         }
 
         return 0;
@@ -166,6 +172,11 @@ public class UpdateBlockCommand
             }
 
             return 1;
+        } else {
+            player.sendMessage(
+                    Text.of("Selected area exceeds the limit of " + FlexiblePCBSettings.updateBlockCommandLimit),
+                    false
+            );
         }
 
         return 0;
