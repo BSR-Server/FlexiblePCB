@@ -29,7 +29,7 @@ Changes the vertical edge length of item pick up range for player. In vanilla, w
 
 **commandUpdateBlock**
 
-Enables `/updateBlock` command to update blocks in a box area. For both NC and PP updates, the source of the update is `Blocks.AIR`. For PP update, update will be send in every direction.
+Enables `/updateBlock` command to update blocks in a box area. For both NC updates, the source of the update is `Blocks.AIR`. For PP update, update will be send in every direction.
 
 **updateBlockCommandLimit**
 
