@@ -24,7 +24,7 @@ import static net.minecraft.server.command.CommandManager.argument;
 public class RemoveBlockCommand {
 
     private static final LiteralArgumentBuilder<ServerCommandSource> COMMAND =
-            literal("removeBlock").
+            literal("removeblock").
                     requires(s -> SettingsManager.canUseCommand(s, FlexiblePCBSettings.commandRemoveBlock)).
                     then(argument("pos", BlockPosArgumentType.blockPos()).
                             executes(it -> {
@@ -35,7 +35,7 @@ public class RemoveBlockCommand {
                                 );
                                 return 0;
                             }).
-                            then(literal("replaceWith").
+                            then(literal("replacewith").
                                     then(argument("block", BlockStateArgumentType.blockState()).
                                             executes(it -> {
                                                 handleRemoveBlock(
