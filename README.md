@@ -13,9 +13,9 @@ This rule adds two `ChunkTicket` for hopper and piston.
 
 Right-click a minecart with hopper, chest, furnace, tnt to transfer it to the corresponding minecart.
 
-**debugStickNoBlockUpdate**
+**debugStickSendBlockUpdate**
 
-Debug stick action will not send block update.
+Debug stick action will send block update.
 
 **itemPickUpRangeHorizontal**
 
