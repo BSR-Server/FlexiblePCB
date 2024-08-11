@@ -5,6 +5,7 @@ import com.google.common.collect.Lists;
 import com.mojang.brigadier.CommandDispatcher;
 import heyblack.flexiblepcb.FlexiblePCBSettings;
 import heyblack.flexiblepcb.mixin.command.commandUpdateBlock.BlockStateArgumentAccessor;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.command.argument.BlockPosArgumentType;
@@ -147,13 +148,20 @@ public class UpdateBlockCommand
 
             for (BlockPos pos : list) {
                 for (Direction dir : Direction.values()) {
-                    world.getBlockState(pos).getStateForNeighborUpdate(
+                    BlockState neighborState = world.getBlockState(pos.offset(dir));
+                    BlockState state = world.getBlockState(pos);
+                    BlockState newState = world.getBlockState(pos).getStateForNeighborUpdate(
                             dir,
-                            Blocks.AIR.getDefaultState(),
+                            neighborState,
                             world,
                             pos,
                             pos
                     );
+
+                    if (state != newState) {
+                        Block.replace(world.getBlockState(pos), newState, world, pos, 34, 512);
+                        break;
+                    }
                 }
             }
 
