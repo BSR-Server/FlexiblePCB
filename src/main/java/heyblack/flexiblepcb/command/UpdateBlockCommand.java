@@ -148,14 +148,20 @@ public class UpdateBlockCommand
 
             for (BlockPos pos : list) {
                 for (Direction dir : Direction.values()) {
+                    BlockState neighborState = world.getBlockState(pos.offset(dir));
+                    BlockState state = world.getBlockState(pos);
                     BlockState newState = world.getBlockState(pos).getStateForNeighborUpdate(
                             dir,
-                            Blocks.AIR.getDefaultState(),
+                            neighborState,
                             world,
                             pos,
                             pos
                     );
-                    Block.replace(world.getBlockState(pos), newState, world, pos, 32, 512);
+
+                    if (state != newState) {
+                        Block.replace(world.getBlockState(pos), newState, world, pos, 34, 512);
+                        break;
+                    }
                 }
             }
 

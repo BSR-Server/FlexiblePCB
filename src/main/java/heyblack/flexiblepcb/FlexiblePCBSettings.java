@@ -1,6 +1,5 @@
 package heyblack.flexiblepcb;
 
-import carpet.CarpetSettings;
 import carpet.settings.ParsedRule;
 import carpet.settings.Rule;
 import carpet.settings.Validator;
@@ -121,8 +120,8 @@ public class FlexiblePCBSettings {
     public static double itemPickUpRangeVertical = VANILLA_ITEM_PICK_UP_RANGE_VERTICAL;
 
     @Rule(
-            desc = "Using debug stick will not send block update",
+            desc = "Using debug stick will send block update",
             category = {CREATIVE, "flexiblepcb"}
     )
-    public static boolean debugStickNoBlockUpdate = false;
+    public static boolean debugStickSendBlockUpdate = false;
 }

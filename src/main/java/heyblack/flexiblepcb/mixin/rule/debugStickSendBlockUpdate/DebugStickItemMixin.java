@@ -1,4 +1,4 @@
-package heyblack.flexiblepcb.mixin.rule.debugStickNoUpdate;
+package heyblack.flexiblepcb.mixin.rule.debugStickSendBlockUpdate;
 
 import heyblack.flexiblepcb.FlexiblePCBSettings;
 import net.minecraft.block.BlockState;
@@ -19,9 +19,9 @@ public class DebugStickItemMixin {
             )
     )
     boolean onSetBlockState(WorldAccess instance, BlockPos blockPos, BlockState blockState, int i) {
-        if (!FlexiblePCBSettings.debugStickNoBlockUpdate) {
-            return instance.setBlockState(blockPos, blockState, i);
+        if (FlexiblePCBSettings.debugStickSendBlockUpdate) {
+            return instance.setBlockState(blockPos, blockState, 3);
         }
-        return instance.setBlockState(blockPos, blockState, 0, 0);
+        return instance.setBlockState(blockPos, blockState, i);
     }
 }
