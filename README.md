@@ -7,7 +7,7 @@
 This rule adds two `ChunkTicket` for hopper and piston. 
 
 - **For hopper**: when a hopper checks its output inventory and it is facing an air block in a different chunk, a `hopper` ticket with 31 level lasting 1 tick will be added in the facing chunk.
-- **For piston(normal and sticky)**: When a piston executes a block event and is facing a defferent chunk, a `piston` ticket with 32 level lasting 6 ticks will be added in the facing chunk.
+- **For piston(normal and sticky)**: When a piston executes a block event and is facing a different chunk, a `piston` ticket with 32 level lasting 6 ticks will be added in the facing chunk.
 
 **insertBlockToMinecart**
 
@@ -19,7 +19,7 @@ Debug stick action will send block update.
 
 **itemPickUpRangeHorizontal**
 
-Changes the horizontaledge length of item pick up range for player.
+Changes the horizontal edge length of item pick up range for player.
 
 **itemPickUpRangeVertical**
 
@@ -29,7 +29,7 @@ Changes the vertical edge length of item pick up range for player. In vanilla, w
 
 **commandUpdateBlock**
 
-Enables `/updateBlock` command to update blocks in a box area. For both NC updates, the source of the update is `Blocks.AIR`. For PP update, update will be send in every direction.
+Enables `/updateBlock` command to update blocks in a box area. For NC updates, the source of the update is `Blocks.AIR`. For PP updates, update will be sent in every direction.
 
 **updateBlockCommandLimit**
 
@@ -49,7 +49,7 @@ An item shadow of the item in the main-hand will be created in the off-hand.
 
 **commandChunkSaveState**
 
-Manages chunks for save-stating by command `/chunksavestate`.
+Manages list of chunks for save-stating by command `/chunksavestate`.
 
 ### Bugfix
 
