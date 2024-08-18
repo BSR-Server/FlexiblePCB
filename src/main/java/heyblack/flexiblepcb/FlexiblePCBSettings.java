@@ -31,6 +31,7 @@ public class FlexiblePCBSettings {
 //    )
 //    public static int testIntRule = 1;
 
+    // Rule
     @Rule(
             desc = "Adds more vanilla like chunk loaders.",
             category = {SURVIVAL, "flexiblepcb"}
@@ -43,6 +44,39 @@ public class FlexiblePCBSettings {
     )
     public static boolean insertBlockToMinecart = false;
 
+    public static final double VANILLA_ITEM_PICK_UP_RANGE_HORIZONTAL = 1.0;
+
+    @Rule(
+            desc = "Changes the horizontal edge length of item pick up range for player",
+            category = {CREATIVE, "flexiblepcb"},
+            extra = {
+                    "Note that this range means the range between the hitboxes of player and item, not the position of them."
+            },
+            validate = {Validator.NONNEGATIVE_NUMBER.class},
+            options = {"1.0", "2.0", "5.0", "10.0", "0.0"}
+    )
+    public static double itemPickUpRangeHorizontal = VANILLA_ITEM_PICK_UP_RANGE_HORIZONTAL;
+
+    public static final double VANILLA_ITEM_PICK_UP_RANGE_VERTICAL = 0.5;
+    @Rule(
+            desc = "Changes the vertical edge length of item pick up range for player",
+            category = {CREATIVE, "flexiblepcb"},
+            extra = {
+                    "In vanilla, whether the player is riding a vehicle or not will affect the vertical range of item pick up, this rule will not consider and will override that.",
+                    "Note that this range means the range between the hitboxes of player and item, not the position of them."
+            },
+            validate = {Validator.NONNEGATIVE_NUMBER.class},
+            options = {"1.0", "2.0", "5.0", "10.0", "0.0"}
+    )
+    public static double itemPickUpRangeVertical = VANILLA_ITEM_PICK_UP_RANGE_VERTICAL;
+
+    @Rule(
+            desc = "Using debug stick will send block update",
+            category = {CREATIVE, "flexiblepcb"}
+    )
+    public static boolean debugStickSendBlockUpdate = false;
+
+    // Command
     @Rule(
             desc = "Enables /updateBlock command to update blocks",
             category = {COMMAND, CREATIVE, "flexiblepcb"}
@@ -88,40 +122,12 @@ public class FlexiblePCBSettings {
     )
     public static boolean commandChunkSaveState = false;
 
+    // Logger
+
+    // Bugfix
     @Rule(
             desc = "Fixes MC-254307, and the same issue with beds",
             category = {BUGFIX, "flexiblepcb"}
     )
     public static boolean unstableOnGroundTagFix = false;
-
-    public static final double VANILLA_ITEM_PICK_UP_RANGE_HORIZONTAL = 1.0;
-    @Rule(
-            desc = "Changes the horizontal edge length of item pick up range for player",
-            category = {CREATIVE, "flexiblepcb"},
-            extra = {
-                    "Note that this range means the range between the hitboxes of player and item, not the position of them."
-            },
-            validate = {Validator.NONNEGATIVE_NUMBER.class},
-            options = {"1.0", "2.0", "5.0", "10.0", "0.0"}
-    )
-    public static double itemPickUpRangeHorizontal = VANILLA_ITEM_PICK_UP_RANGE_HORIZONTAL;
-
-    public static final double VANILLA_ITEM_PICK_UP_RANGE_VERTICAL = 0.5;
-    @Rule(
-            desc = "Changes the vertical edge length of item pick up range for player",
-            category = {CREATIVE, "flexiblepcb"},
-            extra = {
-                    "In vanilla, whether the player is riding a vehicle or not will affect the vertical range of item pick up, this rule will not consider and will override that.",
-                    "Note that this range means the range between the hitboxes of player and item, not the position of them."
-            },
-            validate = {Validator.NONNEGATIVE_NUMBER.class},
-            options = {"1.0", "2.0", "5.0", "10.0", "0.0"}
-    )
-    public static double itemPickUpRangeVertical = VANILLA_ITEM_PICK_UP_RANGE_VERTICAL;
-
-    @Rule(
-            desc = "Using debug stick will send block update",
-            category = {CREATIVE, "flexiblepcb"}
-    )
-    public static boolean debugStickSendBlockUpdate = false;
 }
