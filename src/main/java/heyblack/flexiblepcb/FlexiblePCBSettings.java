@@ -76,6 +76,12 @@ public class FlexiblePCBSettings {
     )
     public static boolean debugStickSendBlockUpdate = false;
 
+    @Rule(
+            desc = "Loaded enderpearl always ticks regardless of chunk level",
+            category = {CREATIVE, "flexiblepcb"}
+    )
+    public static boolean enderPearlAlwaysTicks = false;
+
     // Command
     @Rule(
             desc = "Enables /updateBlock command to update blocks",
