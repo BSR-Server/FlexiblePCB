@@ -13,7 +13,8 @@
     "rule.insertBlockToMinecart.MinecartEntityMixin",
     "rule.itemPickUpRange.PlayerEntityMixin",
     "rule.moreChunkLoaders.HopperBlockEntityMixin",
-    "rule.moreChunkLoaders.PistonBlockMixin"
+    "rule.moreChunkLoaders.PistonBlockMixin",
+    "rule.remoteRedstone.RedstoneWireBlockMixin"
   ],
   "client": [
   ],

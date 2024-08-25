@@ -82,6 +82,12 @@ public class FlexiblePCBSettings {
     )
     public static boolean enderPearlAlwaysTicks = false;
 
+    @Rule(
+            desc = "",
+            category = {CREATIVE, "flexiblepcb"}
+    )
+    public static boolean remoteRedStone = false;
+
     // Command
     @Rule(
             desc = "Enables /updateBlock command to update blocks",
