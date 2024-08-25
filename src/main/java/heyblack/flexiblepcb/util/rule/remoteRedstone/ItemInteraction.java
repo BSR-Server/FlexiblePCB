@@ -41,7 +41,7 @@ public class ItemInteraction {
             BlockPos pos = hit.getBlockPos();
             if (RemoteRedstoneManager.hasRemoteRedstone(pos)) {
                 RemoteRedstone remoteRedstone = RemoteRedstoneManager.getRemoteRedstone(pos);
-                remoteRedstone.setGroup(((DyeItem) player.getMainHandStack().getItem()).getColor());
+                remoteRedstone.changeGroup(((DyeItem) player.getMainHandStack().getItem()).getColor());
 
                 return true;
             }

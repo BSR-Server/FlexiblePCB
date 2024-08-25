@@ -1,6 +1,8 @@
 package heyblack.flexiblepcb.util.rule.remoteRedstone;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.text.LiteralText;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -48,6 +50,10 @@ public class RemoteRedstone {
         return this.remoteSignal;
     }
 
+    public World getWorld() {
+        return this.world;
+    }
+
     public BlockPos getPos() {
         return this.pos;
     }
@@ -56,8 +62,10 @@ public class RemoteRedstone {
         return this.group;
     }
 
-    public void setGroup(DyeColor newGroup) {
+    public void changeGroup(DyeColor newGroup) {
         RemoteRedstoneManager.changeGroup(this, newGroup);
+    }
+    public void setGroup(DyeColor newGroup) {
         this.group = newGroup;
     }
 
@@ -67,5 +75,15 @@ public class RemoteRedstone {
 
     public void flipSenderState() {
         this.sender = !this.sender;
+
+        for (PlayerEntity player : this.world.getPlayers()) {
+            if (player.isCreativeLevelTwoOp()) {
+                player.sendMessage(
+                        new LiteralText("Changed the state of remote redstone on [" + this.pos.toShortString() + "] in group " + this.getGroup().asString() + "to " + (this.sender ? "sender" : "receiver"))
+                                .formatted(RemoteRedstoneManager.getFormatting(this.getGroup())),
+                        false
+                );
+            }
+        }
     }
 }
