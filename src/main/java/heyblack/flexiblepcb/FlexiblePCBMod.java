@@ -8,17 +8,13 @@ import heyblack.flexiblepcb.command.ChunkSaveStateCommand;
 import heyblack.flexiblepcb.command.ItemShadowCommand;
 import heyblack.flexiblepcb.command.RemoveBlockCommand;
 import heyblack.flexiblepcb.command.UpdateBlockCommand;
+import heyblack.flexiblepcb.util.rule.remoteRedstone.RemoteRedstoneManager;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class FlexiblePCBMod implements CarpetExtension
 {
-    private static SettingsManager settingsManager;
-    static {
-        settingsManager = new SettingsManager("0.0.1", "flexiblepcb", "FlexiblePCB");
-    }
-
     @Override
     public void onGameStarted() {
         CarpetServer.settingsManager.parseSettingsClass(FlexiblePCBSettings.class);
@@ -29,6 +25,10 @@ public class FlexiblePCBMod implements CarpetExtension
                 PlayerManager pm = serverCommandSource.getMinecraftServer().getPlayerManager();
                 for (ServerPlayerEntity player : pm.getPlayerList()) {
                     pm.sendCommandTree(player);
+                }
+
+                if (currentRuleState.name.equals("remoteRedstone") && !currentRuleState.getBoolValue()) {
+                    RemoteRedstoneManager.removeAll();
                 }
             }
         });

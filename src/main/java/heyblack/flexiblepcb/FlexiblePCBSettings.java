@@ -86,7 +86,7 @@ public class FlexiblePCBSettings {
             desc = "",
             category = {CREATIVE, "flexiblepcb"}
     )
-    public static boolean remoteRedStone = false;
+    public static boolean remoteRedstone = false;
 
     // Command
     @Rule(

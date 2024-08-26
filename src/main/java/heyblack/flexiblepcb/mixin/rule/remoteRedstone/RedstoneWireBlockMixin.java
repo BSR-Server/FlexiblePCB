@@ -30,7 +30,7 @@ public class RedstoneWireBlockMixin {
             at = @At("TAIL")
     )
     void addTrackingPos(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify, CallbackInfo ci) {
-        if (!world.isClient() && FlexiblePCBSettings.remoteRedStone && world.getBlockState(pos.offset(Direction.DOWN)).isOf(Blocks.BARRIER)) {
+        if (!world.isClient() && FlexiblePCBSettings.remoteRedstone && world.getBlockState(pos.offset(Direction.DOWN)).isOf(Blocks.BARRIER)) {
             RemoteRedstoneManager.addRemoteRedstone(world, pos);
         }
     }
@@ -45,7 +45,7 @@ public class RedstoneWireBlockMixin {
             )
     )
     void onRemove(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved, CallbackInfo ci) {
-        if (!world.isClient() && FlexiblePCBSettings.remoteRedStone && RemoteRedstoneManager.hasRemoteRedstone(pos)) {
+        if (!world.isClient() && FlexiblePCBSettings.remoteRedstone && RemoteRedstoneManager.hasRemoteRedstone(pos)) {
             RemoteRedstone remoteRedstone = RemoteRedstoneManager.getRemoteRedstone(pos);
 
             if (!state.isOf(newState.getBlock())) {
@@ -60,7 +60,7 @@ public class RedstoneWireBlockMixin {
             locals = LocalCapture.CAPTURE_FAILHARD
     )
     void updateRemotePower(World world, BlockPos pos, BlockState state, CallbackInfo ci, int i) {
-        if (!world.isClient() && FlexiblePCBSettings.remoteRedStone && RemoteRedstoneManager.hasRemoteRedstone(pos)) {
+        if (!world.isClient() && FlexiblePCBSettings.remoteRedstone && RemoteRedstoneManager.hasRemoteRedstone(pos)) {
             RemoteRedstone remoteRedstone = RemoteRedstoneManager.getRemoteRedstone(pos);
 
             if (state.get(POWER) != i && remoteRedstone.isSender()) {
@@ -75,7 +75,7 @@ public class RedstoneWireBlockMixin {
             cancellable = true
     )
     void useRemoteSignal(World world, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
-        if (!world.isClient() && FlexiblePCBSettings.remoteRedStone && RemoteRedstoneManager.hasRemoteRedstone(pos)) {
+        if (!world.isClient() && FlexiblePCBSettings.remoteRedstone && RemoteRedstoneManager.hasRemoteRedstone(pos)) {
             RemoteRedstone remoteRedstone = RemoteRedstoneManager.getRemoteRedstone(pos);
 
             if (!remoteRedstone.isSender()) {

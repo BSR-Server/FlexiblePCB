@@ -14,7 +14,7 @@ public class ItemInteraction {
     public static boolean changeSenderState(World world, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (
             !world.isClient()
-            && FlexiblePCBSettings.remoteRedStone
+            && FlexiblePCBSettings.remoteRedstone
             && !player.getMainHandStack().isEmpty()
             && player.getMainHandStack().getItem() instanceof BlockItem
             && ((BlockItem) player.getMainHandStack().getItem()).getBlock() == Blocks.BARRIER
@@ -34,7 +34,7 @@ public class ItemInteraction {
     public static boolean changeGroup(World world, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (
             !world.isClient()
-            && FlexiblePCBSettings.remoteRedStone
+            && FlexiblePCBSettings.remoteRedstone
             && !player.getMainHandStack().isEmpty()
             && player.getMainHandStack().getItem() instanceof DyeItem
         ) {

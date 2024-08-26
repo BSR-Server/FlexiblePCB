@@ -112,7 +112,7 @@ public class RemoteRedstoneManager {
         }
     }
 
-    public void removeAll() {
+    public static void removeAll() {
         posMap.clear();
         groupMap.clear();
     }
