@@ -88,6 +88,12 @@ public class FlexiblePCBSettings {
     )
     public static boolean remoteRedstone = false;
 
+    @Rule(
+            desc = "",
+            category = {CREATIVE, "flexiblepcb"}
+    )
+    public static boolean instantTileTick = false;
+
     // Command
     @Rule(
             desc = "Enables /updateBlock command to update blocks",
