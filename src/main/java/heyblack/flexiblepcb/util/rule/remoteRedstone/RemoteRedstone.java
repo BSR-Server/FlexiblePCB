@@ -79,7 +79,7 @@ public class RemoteRedstone {
         for (PlayerEntity player : this.world.getPlayers()) {
             if (player.isCreativeLevelTwoOp()) {
                 player.sendMessage(
-                        new LiteralText("Changed the state of remote redstone on [" + this.pos.toShortString() + "] in group " + this.getGroup().asString() + "to " + (this.sender ? "sender" : "receiver"))
+                        new LiteralText("Changed the state of remote redstone on [" + this.pos.toShortString() + "] in group " + this.getGroup().asString() + " to " + (this.sender ? "sender" : "receiver"))
                                 .formatted(RemoteRedstoneManager.getFormatting(this.getGroup())),
                         false
                 );

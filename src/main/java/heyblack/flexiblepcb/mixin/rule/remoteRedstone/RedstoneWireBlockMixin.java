@@ -8,6 +8,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.RedstoneWireBlock;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.DyeItem;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -89,11 +91,23 @@ public class RedstoneWireBlockMixin {
             at = @At("HEAD"),
             cancellable = true
     )
-    void flipSenderState(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
-        if (ItemInteraction.changeSenderState(world, player, hand, hit)) {
-            cir.setReturnValue(ActionResult.SUCCESS);
-        } else if (ItemInteraction.changeGroup(world, player, hand, hit)) {
-            cir.setReturnValue(ActionResult.SUCCESS);
+    void onItemInteraction(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
+        if (FlexiblePCBSettings.remoteRedstone) {
+            if (
+                    !player.getMainHandStack().isEmpty()
+                    && player.getMainHandStack().getItem() instanceof BlockItem
+                    && ((BlockItem) player.getMainHandStack().getItem()).getBlock() == Blocks.BARRIER
+            ) {
+                ItemInteraction.changeSenderState(world, player, hand, hit);
+                cir.setReturnValue(ActionResult.SUCCESS);
+
+            } else if (
+                    !player.getMainHandStack().isEmpty()
+                    && player.getMainHandStack().getItem() instanceof DyeItem
+            ) {
+                ItemInteraction.changeGroup(world, player, hand, hit);
+                cir.setReturnValue(ActionResult.SUCCESS);
+            }
         }
     }
 }

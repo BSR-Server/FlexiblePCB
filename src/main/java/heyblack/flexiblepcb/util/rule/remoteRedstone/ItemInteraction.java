@@ -11,42 +11,23 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemInteraction {
-    public static boolean changeSenderState(World world, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (
-            !world.isClient()
-            && FlexiblePCBSettings.remoteRedstone
-            && !player.getMainHandStack().isEmpty()
-            && player.getMainHandStack().getItem() instanceof BlockItem
-            && ((BlockItem) player.getMainHandStack().getItem()).getBlock() == Blocks.BARRIER
-        ) {
+    public static void changeSenderState(World world, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!world.isClient()) {
             BlockPos pos = hit.getBlockPos();
             if (RemoteRedstoneManager.hasRemoteRedstone(pos)) {
                 RemoteRedstone remoteRedstone = RemoteRedstoneManager.getRemoteRedstone(pos);
                 remoteRedstone.flipSenderState();
-
-                return true;
             }
         }
-
-        return false;
     }
 
-    public static boolean changeGroup(World world, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (
-            !world.isClient()
-            && FlexiblePCBSettings.remoteRedstone
-            && !player.getMainHandStack().isEmpty()
-            && player.getMainHandStack().getItem() instanceof DyeItem
-        ) {
+    public static void changeGroup(World world, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!world.isClient()) {
             BlockPos pos = hit.getBlockPos();
             if (RemoteRedstoneManager.hasRemoteRedstone(pos)) {
                 RemoteRedstone remoteRedstone = RemoteRedstoneManager.getRemoteRedstone(pos);
                 remoteRedstone.changeGroup(((DyeItem) player.getMainHandStack().getItem()).getColor());
-
-                return true;
             }
         }
-
-        return false;
     }
 }
