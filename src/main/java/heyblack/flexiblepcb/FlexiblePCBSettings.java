@@ -83,7 +83,7 @@ public class FlexiblePCBSettings {
     public static boolean enderPearlAlwaysTicks = false;
 
     @Rule(
-            desc = "",
+            desc = "Enables remote redstone links",
             category = {CREATIVE, "flexiblepcb"}
     )
     public static boolean remoteRedstone = false;
