@@ -11,6 +11,8 @@
     "rule.fixUnstableOnGroundTag.BedBlockMixin",
     "rule.fixUnstableOnGroundTag.SlimeBlockMixin",
     "rule.insertBlockToMinecart.MinecartEntityMixin",
+    "rule.instantTIleTIck.ServerTickSchedulerAccessor",
+    "rule.instantTIleTIck.ServerTickSchedulerMixin",
     "rule.itemPickUpRange.PlayerEntityMixin",
     "rule.moreChunkLoaders.HopperBlockEntityMixin",
     "rule.moreChunkLoaders.PistonBlockMixin",

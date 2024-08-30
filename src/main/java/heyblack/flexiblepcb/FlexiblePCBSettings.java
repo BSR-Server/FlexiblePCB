@@ -90,7 +90,7 @@ public class FlexiblePCBSettings {
 
     @Rule(
             desc = "",
-            category = {CREATIVE, "flexiblepcb"}
+            category = {CREATIVE, EXPERIMENTAL, "flexiblepcb"}
     )
     public static boolean instantTileTick = false;
 
