@@ -65,7 +65,7 @@ public class RedstoneWireBlockMixin {
         if (!world.isClient() && FlexiblePCBSettings.remoteRedstone && RemoteRedstoneManager.hasRemoteRedstone(pos)) {
             RemoteRedstone remoteRedstone = RemoteRedstoneManager.getRemoteRedstone(pos);
 
-            if (state.get(POWER) != i && remoteRedstone.isSender()) {
+            if (remoteRedstone.isSender()) {
                 remoteRedstone.notifySignalToGroup(i);
             }
         }
