@@ -44,7 +44,7 @@ public class RemoteRedstoneManager {
             for (PlayerEntity player : world.getPlayers()) {
                 if (player.isCreativeLevelTwoOp()) {
                     player.sendMessage(
-                            new LiteralText("Remote redstone has been added on [" + pos.toShortString() + "] in group " + remoteRedstone.getGroup().asString())
+                            new LiteralText("Remote redstone has been added on [" + remoteRedstone.getPosAsString() + "] in group " + remoteRedstone.getGroup().asString())
                                     .formatted(getFormatting(remoteRedstone.getGroup())),
                             false
                     );
@@ -82,7 +82,7 @@ public class RemoteRedstoneManager {
         for (PlayerEntity player : remoteRedstone.getWorld().getPlayers()) {
             if (player.isCreativeLevelTwoOp()) {
                 player.sendMessage(
-                        new LiteralText("Changed the group of remote redstone on [" + remoteRedstone.getPos().toShortString() + "] to " + remoteRedstone.getGroup().asString())
+                        new LiteralText("Changed the group of remote redstone on [" + remoteRedstone.getPosAsString() + "] to " + remoteRedstone.getGroup().asString())
                                 .formatted(getFormatting(remoteRedstone.getGroup())),
                         false
                 );
@@ -104,7 +104,7 @@ public class RemoteRedstoneManager {
         for (PlayerEntity player : remoteRedstone.getWorld().getPlayers()) {
             if (player.isCreativeLevelTwoOp()) {
                 player.sendMessage(
-                        new LiteralText("Removed remote redstone on [" + remoteRedstone.getPos().toShortString() + "] which is in group " + remoteRedstone.getGroup().asString())
+                        new LiteralText("Removed remote redstone on [" + remoteRedstone.getPosAsString() + "] which is in group " + remoteRedstone.getGroup().asString())
                                 .formatted(getFormatting(remoteRedstone.getGroup())),
                         false
                 );
