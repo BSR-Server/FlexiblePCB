@@ -74,11 +74,25 @@ public class RemoteRedstone {
     }
 
     public void flipSenderState(PlayerEntity player) {
+        if (!this.sender) {
+            for (RemoteRedstone r : RemoteRedstoneManager.getInstanceListByGroup(this.group)) {
+                if (r.isSender()) {
+                    player.sendMessage(
+                            new LiteralText("ERROR: Unable to change this redstone to sender since there is already a sender in group " + this.group.asString())
+                                    .formatted(RemoteRedstoneManager.getFormatting(this.group)),
+                            false
+                    );
+
+                    return;
+                }
+            }
+        }
+
         this.sender = !this.sender;
 
         player.sendMessage(
-                new LiteralText("Changed the state of remote redstone on [" + this.getPosAsString() + "] in group " + this.getGroup().asString() + " to " + (this.sender ? "sender" : "receiver"))
-                        .formatted(RemoteRedstoneManager.getFormatting(this.getGroup())),
+                new LiteralText("Changed the state of remote redstone on [" + this.getPosAsString() + "] in group " + this.group.asString() + " to " + (this.sender ? "sender" : "receiver"))
+                        .formatted(RemoteRedstoneManager.getFormatting(this.group)),
                 false
         );
     }
