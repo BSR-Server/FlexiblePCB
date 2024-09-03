@@ -65,7 +65,7 @@ public class RemoteRedstoneManager {
         }
     }
 
-    public static void changeGroup(RemoteRedstone remoteRedstone, DyeColor newGroup) {
+    public static void changeGroup(RemoteRedstone remoteRedstone, DyeColor newGroup, PlayerEntity player) {
         DyeColor oldGroup = remoteRedstone.getGroup();
         List<RemoteRedstone> list = groupMap.get(oldGroup);
         list.remove(remoteRedstone);
@@ -79,15 +79,11 @@ public class RemoteRedstoneManager {
         groupMap.put(newGroup, newList);
         remoteRedstone.setGroup(newGroup);
 
-        for (PlayerEntity player : remoteRedstone.getWorld().getPlayers()) {
-            if (player.isCreativeLevelTwoOp()) {
-                player.sendMessage(
-                        new LiteralText("Changed the group of remote redstone on [" + remoteRedstone.getPosAsString() + "] to " + remoteRedstone.getGroup().asString())
-                                .formatted(getFormatting(remoteRedstone.getGroup())),
-                        false
-                );
-            }
-        }
+        player.sendMessage(
+                new LiteralText("Changed the group of remote redstone on [" + remoteRedstone.getPosAsString() + "] to " + remoteRedstone.getGroup().asString())
+                        .formatted(getFormatting(remoteRedstone.getGroup())),
+                false
+        );
     }
 
     public static List<RemoteRedstone> getInstanceListByGroup(DyeColor group) {

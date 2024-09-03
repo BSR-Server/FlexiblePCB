@@ -16,7 +16,7 @@ public class ItemInteraction {
             BlockPos pos = hit.getBlockPos();
             if (RemoteRedstoneManager.hasRemoteRedstone(pos)) {
                 RemoteRedstone remoteRedstone = RemoteRedstoneManager.getRemoteRedstone(pos);
-                remoteRedstone.flipSenderState();
+                remoteRedstone.flipSenderState(player);
             }
         }
     }
@@ -26,7 +26,7 @@ public class ItemInteraction {
             BlockPos pos = hit.getBlockPos();
             if (RemoteRedstoneManager.hasRemoteRedstone(pos)) {
                 RemoteRedstone remoteRedstone = RemoteRedstoneManager.getRemoteRedstone(pos);
-                remoteRedstone.changeGroup(((DyeItem) player.getMainHandStack().getItem()).getColor());
+                remoteRedstone.changeGroup(((DyeItem) player.getMainHandStack().getItem()).getColor(), player);
             }
         }
     }

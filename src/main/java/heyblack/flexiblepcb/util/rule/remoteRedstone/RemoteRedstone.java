@@ -62,8 +62,8 @@ public class RemoteRedstone {
         return this.group;
     }
 
-    public void changeGroup(DyeColor newGroup) {
-        RemoteRedstoneManager.changeGroup(this, newGroup);
+    public void changeGroup(DyeColor newGroup, PlayerEntity player) {
+        RemoteRedstoneManager.changeGroup(this, newGroup, player);
     }
     public void setGroup(DyeColor newGroup) {
         this.group = newGroup;
@@ -73,18 +73,14 @@ public class RemoteRedstone {
         return this.sender;
     }
 
-    public void flipSenderState() {
+    public void flipSenderState(PlayerEntity player) {
         this.sender = !this.sender;
 
-        for (PlayerEntity player : this.world.getPlayers()) {
-            if (player.isCreativeLevelTwoOp()) {
-                player.sendMessage(
-                        new LiteralText("Changed the state of remote redstone on [" + this.getPosAsString() + "] in group " + this.getGroup().asString() + " to " + (this.sender ? "sender" : "receiver"))
-                                .formatted(RemoteRedstoneManager.getFormatting(this.getGroup())),
-                        false
-                );
-            }
-        }
+        player.sendMessage(
+                new LiteralText("Changed the state of remote redstone on [" + this.getPosAsString() + "] in group " + this.getGroup().asString() + " to " + (this.sender ? "sender" : "receiver"))
+                        .formatted(RemoteRedstoneManager.getFormatting(this.getGroup())),
+                false
+        );
     }
 
     public String getPosAsString() {
