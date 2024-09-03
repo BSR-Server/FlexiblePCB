@@ -4,7 +4,7 @@
 
 **moreChunkLoaders**
 
-This rule adds two `ChunkTicket` for hopper and piston. 
+This rule adds two `ChunkTicket` for hopper and piston.
 
 - **For hopper**: when a hopper checks its output inventory and it is facing an air block in a different chunk, a `hopper` ticket with 31 level lasting 1 tick will be added in the facing chunk.
 - **For piston(normal and sticky)**: When a piston executes a block event and is facing a different chunk, a `piston` ticket with 32 level lasting 6 ticks will be added in the facing chunk.
@@ -24,6 +24,18 @@ Changes the horizontal edge length of item pick up range for player.
 **itemPickUpRangeVertical**
 
 Changes the vertical edge length of item pick up range for player. In vanilla, whether the player is riding a vehicle or not will affect the vertical range of item pick up, this rule will not consider and will override that.
+
+**enderPearlAlwaysTicks**
+
+Makes loaded ender pearl always ticks, bypassing the chunk loading level check.
+
+**remoteRedstone**
+
+Link redstone wires remotely in the scale of micro-timing, check [this doc](https://bsrserver.org.cn:8443/blogs/1280496408985600000) for detailed information.
+
+**instantTileTick**
+
+(This is an experimental rule) Tries to bring back ITT from 1.13-, just a simple attempt, do not expect it to work.
 
 ### Commands
 
