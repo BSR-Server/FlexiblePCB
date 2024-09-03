@@ -25,6 +25,18 @@ Changes the horizontal edge length of item pick up range for player.
 
 Changes the vertical edge length of item pick up range for player. In vanilla, whether the player is riding a vehicle or not will affect the vertical range of item pick up, this rule will not consider and will override that.
 
+**enderPearlAlwaysTicks**
+
+Makes loaded ender pearl always ticks, bypassing the chunk loading level check.
+
+**remoteRedstone**
+
+Link redstone wires remotely in the scale of micro-timing, check [this doc](https://bsrserver.org.cn:8443/blogs/1280496408985600000) for detailed information.
+
+**instantTileTick**
+
+(This is an experimental rule) Tries to bring back ITT from 1.13-, just a simple attempt, do not expect it to work.
+
 ### Commands
 
 **commandUpdateBlock**
