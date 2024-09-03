@@ -58,7 +58,10 @@ public class RedstoneWireBlockMixin {
 
     @Inject(
             method = "update",
-            at = @At("TAIL"),
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/world/World;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;I)Z"
+            ),
             locals = LocalCapture.CAPTURE_FAILHARD
     )
     void updateRemotePower(World world, BlockPos pos, BlockState state, CallbackInfo ci, int i) {
