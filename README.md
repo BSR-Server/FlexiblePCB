@@ -4,7 +4,7 @@
 
 **moreChunkLoaders**
 
-This rule adds two `ChunkTicket` for hopper and piston. 
+This rule adds two `ChunkTicket` for hopper and piston.
 
 - **For hopper**: when a hopper checks its output inventory and it is facing an air block in a different chunk, a `hopper` ticket with 31 level lasting 1 tick will be added in the facing chunk.
 - **For piston(normal and sticky)**: When a piston executes a block event and is facing a different chunk, a `piston` ticket with 32 level lasting 6 ticks will be added in the facing chunk.
@@ -68,3 +68,9 @@ Manages list of chunks for save-stating by command `/chunksavestate`.
 **unstableOnGroundTagFix**
 
 Fixes [MC-254307](https://bugs.mojang.com/browse/MC-254307), and the same issue with beds.
+
+### Tweaks
+
+**Player Command**
+
+- Adds sub command `switch` to carpet command `/player` to switch the item in main hand with the player
