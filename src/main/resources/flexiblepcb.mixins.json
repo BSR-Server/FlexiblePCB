@@ -4,6 +4,7 @@
   "package": "heyblack.flexiblepcb.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "carpet.command.playerSwitchItem.PlayerCommandMixin",
     "command.commandChunkSaveState.ChunkSerializerMixin",
     "command.commandUpdateBlock.BlockStateArgumentAccessor",
     "rule.debugStickSendBlockUpdate.DebugStickItemMixin",
