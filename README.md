@@ -68,3 +68,9 @@ Manages list of chunks for save-stating by command `/chunksavestate`.
 **unstableOnGroundTagFix**
 
 Fixes [MC-254307](https://bugs.mojang.com/browse/MC-254307), and the same issue with beds.
+
+### Tweaks
+
+**Player Command**
+
+- Adds sub command `switch` to carpet command `/player` to switch the item in main hand with the player
