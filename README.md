@@ -73,4 +73,8 @@ Fixes [MC-254307](https://bugs.mojang.com/browse/MC-254307), and the same issue 
 
 **Player Command**
 
-- Adds sub command `switch` to carpet command `/player` to switch the item in main hand with the player
+- Adds sub command `switch` to carpet command `/player` to switch the item in main hand with the player.
+
+**TNT Logger**
+
+- Adds extra log message to full tnt logger when tnt is primed to show the motion of that primed tnt.
