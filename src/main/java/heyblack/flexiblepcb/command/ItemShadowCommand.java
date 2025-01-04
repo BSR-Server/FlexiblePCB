@@ -1,8 +1,6 @@
 package heyblack.flexiblepcb.command;
 
-import carpet.CarpetSettings;
 import carpet.settings.SettingsManager;
-import carpet.utils.Messenger;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import heyblack.flexiblepcb.FlexiblePCBSettings;
