@@ -149,6 +149,12 @@ public class FlexiblePCBSettings {
     )
     public static boolean unstableOnGroundTagFix = false;
 
+    @Rule(
+            desc = "Fixes MC-252361",
+            category = {BUGFIX, "flexiblepcb"}
+    )
+    public static boolean endPlatformHeightFix = false;
+
     // Tweak
     @Rule(
             desc = "Adds motion data to full tnt logger",

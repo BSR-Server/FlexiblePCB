@@ -10,6 +10,7 @@
     "command.commandUpdateBlock.BlockStateArgumentAccessor",
     "rule.debugStickSendBlockUpdate.DebugStickItemMixin",
     "rule.enderPearlAlwaysTicks.ServerChunkManagerMixin",
+    "rule.endPlatformHeightFix.ServerPlayerEntityMixin",
     "rule.fixUnstableOnGroundTag.BedBlockMixin",
     "rule.fixUnstableOnGroundTag.SlimeBlockMixin",
     "rule.insertBlockToMinecart.MinecartEntityMixin",
