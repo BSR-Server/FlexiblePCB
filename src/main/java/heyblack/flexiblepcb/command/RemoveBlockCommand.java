@@ -14,8 +14,10 @@ import net.minecraft.server.ServerTask;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.Texts;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 
 import static net.minecraft.server.command.CommandManager.argument;
@@ -73,16 +75,16 @@ public class RemoveBlockCommand {
                 }
                 if (newState == null) {
                     src.sendFeedback(
-                            Text.of("Removed ").copy().append(bs.getBlock().getName()),
+                            new LiteralText("Removed ").copy().append(new TranslatableText(bs.getBlock().getTranslationKey())),
                             true
                     );
                 } else {
                     src.sendFeedback(
-                            Text.of("Replaced ")
+                            new LiteralText("Replaced ")
                                     .copy()
-                                    .append(bs.getBlock().getName())
+                                    .append(new TranslatableText(bs.getBlock().getTranslationKey()))
                                     .append(" with ")
-                                    .append(level.getBlockState(pos).getBlock().getName()),
+                                    .append(new TranslatableText(level.getBlockState(pos).getBlock().getTranslationKey())),
                             true
                     );
                 }
