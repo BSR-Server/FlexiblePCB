@@ -11,15 +11,15 @@
     "rule.debugStickSendBlockUpdate.DebugStickItemMixin",
     "rule.enderPearlAlwaysTicks.ServerChunkManagerMixin",
     "rule.endPlatformHeightFix.ServerPlayerEntityMixin",
-    "rule.fixUnstableOnGroundTag.BedBlockMixin",
-    "rule.fixUnstableOnGroundTag.SlimeBlockMixin",
     "rule.insertBlockToMinecart.MinecartEntityMixin",
     "rule.instantTIleTIck.ServerTickSchedulerAccessor",
     "rule.instantTIleTIck.ServerTickSchedulerMixin",
     "rule.itemPickUpRange.PlayerEntityMixin",
     "rule.moreChunkLoaders.HopperBlockEntityMixin",
     "rule.moreChunkLoaders.PistonBlockMixin",
-    "rule.remoteRedstone.RedstoneWireBlockMixin"
+    "rule.remoteRedstone.RedstoneWireBlockMixin",
+    "rule.unstableOnGroundTagFix.BedBlockMixin",
+    "rule.unstableOnGroundTagFix.SlimeBlockMixin"
   ],
   "client": [
   ],

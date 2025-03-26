@@ -1,4 +1,4 @@
-package heyblack.flexiblepcb.mixin.rule.fixUnstableOnGroundTag;
+package heyblack.flexiblepcb.mixin.rule.unstableOnGroundTagFix;
 
 import heyblack.flexiblepcb.FlexiblePCBSettings;
 import net.minecraft.block.BedBlock;
