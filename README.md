@@ -69,7 +69,11 @@ Manages list of chunks for save-stating by command `/chunksavestate`.
 
 Fixes [MC-254307](https://bugs.mojang.com/browse/MC-254307), and the same issue with beds.
 
-### Tweaks
+**endPlatformHeightFix**
+
+Fixes [MC-252361](https://bugs.mojang.com/browse/MC-252361)
+
+### Carpet Tweaks
 
 **Player Command**
 
