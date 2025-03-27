@@ -23,8 +23,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import static net.minecraft.block.RedstoneWireBlock.POWER;
-
 @Mixin(RedstoneWireBlock.class)
 public class RedstoneWireBlockMixin {
     @Inject(

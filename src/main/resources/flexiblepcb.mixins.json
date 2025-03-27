@@ -5,19 +5,21 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "carpet.command.playerSwitchItem.PlayerCommandMixin",
+    "carpet.logger.enhancedTntLogger.TNTLogHelperMixin",
     "command.commandChunkSaveState.ChunkSerializerMixin",
     "command.commandUpdateBlock.BlockStateArgumentAccessor",
     "rule.debugStickSendBlockUpdate.DebugStickItemMixin",
     "rule.enderPearlAlwaysTicks.ServerChunkManagerMixin",
-    "rule.fixUnstableOnGroundTag.BedBlockMixin",
-    "rule.fixUnstableOnGroundTag.SlimeBlockMixin",
+    "rule.endPlatformHeightFix.ServerPlayerEntityMixin",
     "rule.insertBlockToMinecart.MinecartEntityMixin",
     "rule.instantTIleTIck.ServerTickSchedulerAccessor",
     "rule.instantTIleTIck.ServerTickSchedulerMixin",
     "rule.itemPickUpRange.PlayerEntityMixin",
     "rule.moreChunkLoaders.HopperBlockEntityMixin",
     "rule.moreChunkLoaders.PistonBlockMixin",
-    "rule.remoteRedstone.RedstoneWireBlockMixin"
+    "rule.remoteRedstone.RedstoneWireBlockMixin",
+    "rule.unstableOnGroundTagFix.BedBlockMixin",
+    "rule.unstableOnGroundTagFix.SlimeBlockMixin"
   ],
   "client": [
   ],

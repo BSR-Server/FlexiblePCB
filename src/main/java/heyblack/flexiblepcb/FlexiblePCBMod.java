@@ -2,7 +2,6 @@ package heyblack.flexiblepcb;
 
 import carpet.CarpetExtension;
 import carpet.CarpetServer;
-import carpet.settings.SettingsManager;
 import com.mojang.brigadier.CommandDispatcher;
 import heyblack.flexiblepcb.command.ChunkSaveStateCommand;
 import heyblack.flexiblepcb.command.ItemShadowCommand;

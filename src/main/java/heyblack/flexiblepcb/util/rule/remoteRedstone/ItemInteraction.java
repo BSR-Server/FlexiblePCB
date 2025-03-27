@@ -1,9 +1,6 @@
 package heyblack.flexiblepcb.util.rule.remoteRedstone;
 
-import heyblack.flexiblepcb.FlexiblePCBSettings;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItem;
 import net.minecraft.item.DyeItem;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;

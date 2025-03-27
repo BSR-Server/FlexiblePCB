@@ -69,8 +69,16 @@ Manages list of chunks for save-stating by command `/chunksavestate`.
 
 Fixes [MC-254307](https://bugs.mojang.com/browse/MC-254307), and the same issue with beds.
 
-### Tweaks
+**endPlatformHeightFix**
+
+Fixes [MC-252361](https://bugs.mojang.com/browse/MC-252361)
+
+### Carpet Tweaks
 
 **Player Command**
 
-- Adds sub command `switch` to carpet command `/player` to switch the item in main hand with the player
+- Adds sub command `switch` to carpet command `/player` to switch the item in main hand with the player.
+
+**TNT Logger**
+
+- Adds extra log message to full tnt logger when tnt is primed to show the motion of that primed tnt.
