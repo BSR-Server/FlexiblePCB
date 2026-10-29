@@ -94,6 +94,12 @@ public class FlexiblePCBSettings {
     )
     public static boolean instantTileTick = false;
 
+    @Rule(
+        desc = "Disables special spawn rule for bats during Halloween",
+        category = {FEATURE, "flexiblepcb"}
+    )
+    public static boolean noHalloweenForBats = false;
+
     // Command
     @Rule(
             desc = "Enables /updateBlock command to update blocks",
