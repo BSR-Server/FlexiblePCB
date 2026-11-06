@@ -17,6 +17,8 @@
     "rule.itemPickUpRange.PlayerEntityMixin",
     "rule.moreChunkLoaders.HopperBlockEntityMixin",
     "rule.moreChunkLoaders.PistonBlockMixin",
+    "rule.noHalloweenForBats.BatEntityMixin",
+    "rule.playerRidingPoseFix.PlayerEntityMixin",
     "rule.remoteRedstone.RedstoneWireBlockMixin",
     "rule.unstableOnGroundTagFix.BedBlockMixin",
     "rule.unstableOnGroundTagFix.SlimeBlockMixin"

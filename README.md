@@ -37,6 +37,10 @@ Link redstone wires remotely in the scale of micro-timing, check [this doc](http
 
 (This is an experimental rule) Tries to bring back ITT from 1.13-, just a simple attempt, do not expect it to work.
 
+**noHalloweenForBats**
+
+Bats are not allowed to celebrate Halloween! Jokes aside, this rules disables the special bat spawning rule around Halloween.
+
 ### Commands
 
 **commandUpdateBlock**
@@ -72,6 +76,10 @@ Fixes [MC-254307](https://bugs.mojang.com/browse/MC-254307), and the same issue 
 **endPlatformHeightFix**
 
 Fixes [MC-252361](https://bugs.mojang.com/browse/MC-252361)
+
+**playerRidingPoseFix**
+
+Fixes [MC-100195](https://bugs.mojang.com/browse/MC/issues/MC-100195)
 
 ### Carpet Tweaks
 

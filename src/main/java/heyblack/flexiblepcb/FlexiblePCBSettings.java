@@ -94,6 +94,12 @@ public class FlexiblePCBSettings {
     )
     public static boolean instantTileTick = false;
 
+    @Rule(
+        desc = "Disables special spawn rule for bats during Halloween",
+        category = {FEATURE, "flexiblepcb"}
+    )
+    public static boolean noHalloweenForBats = false;
+
     // Command
     @Rule(
             desc = "Enables /updateBlock command to update blocks",
@@ -154,6 +160,12 @@ public class FlexiblePCBSettings {
             category = {BUGFIX, "flexiblepcb"}
     )
     public static boolean endPlatformHeightFix = false;
+
+    @Rule(
+        desc = "Fixes MC-100195",
+        category = {BUGFIX, "flexiblepcb"}
+    )
+    public static boolean playerRidingPoseFix = false;
 
     // Tweak
     @Rule(
