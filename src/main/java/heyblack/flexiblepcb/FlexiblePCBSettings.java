@@ -161,6 +161,12 @@ public class FlexiblePCBSettings {
     )
     public static boolean endPlatformHeightFix = false;
 
+    @Rule(
+        desc = "Fixes MC-100195",
+        category = {BUGFIX, "flexiblepcb"}
+    )
+    public static boolean playerRidingPoseFix = false;
+
     // Tweak
     @Rule(
             desc = "Adds motion data to full tnt logger",

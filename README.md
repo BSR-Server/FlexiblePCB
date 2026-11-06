@@ -77,6 +77,10 @@ Fixes [MC-254307](https://bugs.mojang.com/browse/MC-254307), and the same issue 
 
 Fixes [MC-252361](https://bugs.mojang.com/browse/MC-252361)
 
+**playerRidingPoseFix**
+
+Fixes [MC-100195](https://bugs.mojang.com/browse/MC/issues/MC-100195)
+
 ### Carpet Tweaks
 
 **Player Command**
